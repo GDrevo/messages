@@ -1,22 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react"
 
 function App() {
+  const [messages, setMessages] = React.useState(["a", "b"])
+
+  function message(messages) {
+    if (messages.length > 0) {
+      return messages.length > 1 ? `You have ${messages.length} unread messages` : "You have 1 unread message"
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {
+          messages.length === 0 ?
+          <h1>You're all caught up!</h1> :
+          <h1>You have {messages.length} unread {messages.length > 1 ? "messages" : "message"}</h1>
+        }
       </header>
     </div>
   );

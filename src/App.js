@@ -1,4 +1,5 @@
 import './App.css';
+import Form from "./Form"
 import React from "react"
 
 function App() {
@@ -13,11 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {
-          messages.length === 0 ?
-          <h1>You're all caught up!</h1> :
-          <h1>You have {messages.length} unread {messages.length > 1 ? "messages" : "message"}</h1>
-        }
+        <Form />
       </header>
     </div>
   );
